@@ -1,0 +1,34 @@
+table {
+    border-collapse: collapse;
+    width:100%;
+ }
+
+ thead th {
+    color: #ffebcd;
+    background: #3e5d75;
+    cursor: pointer;
+    position: sticky;
+    top: 0;
+    box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+    border-top: 0px;
+ }
+
+ td, th {
+     width: 150px;
+     height: 40px;
+     text-align: center;
+     border: 2px solid #846868;
+ }
+
+ td p, input {
+     margin:6px;
+ }
+ 
+ table tbody tr:nth-child(even) {
+    background: #e3e3e3;
+ }
+    
+ tbody {
+    display: table-row-group;
+    vertical-align: middle;
+  }

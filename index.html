@@ -1,0 +1,23 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spreadsheet</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <script type="module" src="script.js"></script>
+  </head>
+  <body>
+    <button style="margin: 10px;" id="addRowButton">Добавить строку</button>
+
+    <!--     Форма добавления строки, изначально скрыта -->
+    <div style="margin: 10px;" hidden="true" id="formElement">
+      <h1>Введите данные</h1>
+      <form name="addRowForm"></form>
+
+      <button id="saveFormButton">Сохранить</button>
+    </div>
+
+    <table id="someTable"></table>
+  </body>
+</html>
