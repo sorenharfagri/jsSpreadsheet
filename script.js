@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     //Считываем данные с файла
-    readTextFile("/small_data_persons.json", function (text) {
+    readTextFile("./small_data_persons.json", function (text) {
         someTable = new ExtendedTable("someTable", JSON.parse(text));
 
         form.appendChild(someTable.getIdInput());
