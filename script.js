@@ -1,6 +1,5 @@
 import ExtendedTable from "./ExtendedTable.js";
 
-//Отображаем данные с файла
 document.addEventListener('DOMContentLoaded', function () {
 
     let someTable;
@@ -22,21 +21,20 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    //Отображаем форму для добавления строки
+    //Функция для кнопки добавленяи строки
     function showForm() {
         document.querySelector('#formElement').hidden = false; //Отображаем форму
-        document.querySelector('#addRowButton').hidden = true; //Отображаем кнопку добавления строки
+        document.querySelector('#addRowButton').hidden = true; //Скрываем кнопку
     };
 
 
     //Функция для добавления в таблицу новой строки с формы
     function addRow() {
 
-        //Если валидация успешна - создаём строку
         if (someTable.createRow(form.id.value, form.name.value, form.age.value)) {
-            //Обнуляем значения формы
+            //Если строка создана успешно - обнуляем форму, затем её скрываем
             form.reset();
-            //Скрываем форму
+            
             document.querySelector('#addRowButton').hidden = false;
             document.querySelector('#formElement').hidden = true;
         }
@@ -44,14 +42,16 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
 
-    //Считываем данные с файла
+    //Считываем данные с файла, создаём таблицу
     readTextFile("./small_data_persons.json", function (text) {
         someTable = new ExtendedTable("someTable", JSON.parse(text));
 
+        //Получаем инпуты для формы, они есть в методах таблицы
         form.appendChild(someTable.getIdInput());
         form.appendChild(someTable.getNameInput());
         form.appendChild(someTable.getAgeInput());
-
+        
+        //Активизируем функционал добавления новой строки
         document.querySelector("#addRowButton").addEventListener("click", showForm);
         document.querySelector("#saveFormButton").addEventListener("click", addRow);
     });
